@@ -1,0 +1,6 @@
+let Check_Number N =
+    N gr 0 -> 'Positive'
+    | N ls 0 -> 'Negative'
+    | 'Zero'
+in
+Print (Check_Number (-1))

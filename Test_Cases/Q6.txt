@@ -1,0 +1,16 @@
+let remaining = fn (x, y). x - (x/y)*y
+in
+let rec reverse = fn (x, y).
+  x eq 0 -> y |
+  reverse(x/10, y*10 + remaining(x, 10))
+in
+let palindrome = fn x. x eq reverse(x, 0)
+in
+let rec list = fn (x, y, T).
+  x gr y -> T |
+  palindrome(x) -> list(x + 1, y, T aug x) | list(x + 1, y, T)
+in
+let Palindrome_List = fn(x, y). list(x, y, nil)
+in
+Print(Palindrome_List(800, 1000))
+  

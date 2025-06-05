@@ -1,0 +1,7 @@
+let remaining(N,d) = N - (N/d)*d
+in
+let rec reverse(N,S) = N le 0 -> S | reverse(N/10, (S*10)+remaining(N,10))
+in
+let Palindrome(N) = reverse(N,0) eq N -> 'Palindrome'|'Not a palindrome'
+in
+Print(Palindrome(12321))

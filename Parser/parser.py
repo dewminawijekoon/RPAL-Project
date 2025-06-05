@@ -1,5 +1,5 @@
 from enum import Enum
-from lexical_analyzer import TokenType, Token
+from Lexer.lexical_analyzer import TokenType, Token
 
 # Enumeration defining all possible node types in the Abstract Syntax Tree (AST)
 # Each node type represents a different language construct or operation
@@ -8,7 +8,7 @@ class NodeType(Enum):
     fcn_form = 2         # Function form definition
     id = 3               # Identifier
     int = 4              # Integer literal
-    string = 5           # String literal
+    str = 5           # String literal
     where = 6            # Where clause
     gamma = 7            # Function application
     lambda_expr = 8      # Lambda expression (anonymous function)
@@ -126,7 +126,7 @@ class Parser:
     def add_strings(self, dots, node):
         """Add formatted string representation of a node to string_ast"""
         # Special formatting for nodes with values
-        if node.type in [NodeType.id, NodeType.int, NodeType.string, NodeType.true_value,
+        if node.type in [NodeType.id, NodeType.int, NodeType.str, NodeType.true_value,
                          NodeType.false_value, NodeType.nil, NodeType.dummy]:
             self.string_ast.append(dots + "<" + node.type.name.upper() + ":" + node.value + ">")
         elif node.type == NodeType.fcn_form:
@@ -451,7 +451,7 @@ class Parser:
             self.consume_token()
         elif token.type == TokenType.STRING:
             # String literal
-            self.ast.append(Node(NodeType.string, token.value, 0))
+            self.ast.append(Node(NodeType.str, token.value, 0))
             self.consume_token()
         elif token.type == TokenType.KEYWORD:
             # Handle keyword literals

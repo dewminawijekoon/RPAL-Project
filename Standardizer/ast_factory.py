@@ -1,4 +1,4 @@
-from Standerizer.node import NodeFactory
+from .node import NodeFactory
 from .ast import AST
 
 #converting nodes from parser

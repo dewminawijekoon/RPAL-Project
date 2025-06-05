@@ -1,0 +1,8 @@
+let rec fib (a,b,c, d, curr_lst) =
+	a gr d -> curr_lst |a ls c -> fib(b,a+b,c,d,curr_lst)|
+	fib(b,a+b, c,d,curr_lst aug a)
+in
+let fib_print(start,end) = 
+	Print(fib (0,1, start,end, nil))
+in
+fib_print(0, 50)

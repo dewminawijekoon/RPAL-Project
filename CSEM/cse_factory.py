@@ -20,12 +20,12 @@ class CSEMachineFactory:
         elif data == "<Y*>":
             return Ystar()  # Y* symbol
         else:
-            if data.startswith("<IDENTIFIER:"):
-                return Id(data[12:-1])  # Identifier symbol
-            elif data.startswith("<INTEGER:"):
-                return Int(data[9:-1])  # Integer symbol
-            elif data.startswith("<STRING:"):
-                return Str(data[9:-2])  # String symbol
+            if data.startswith("<ID:"):
+                return Id(data[4:-1])  # Identifier symbol
+            elif data.startswith("<INT:"):
+                return Int(data[5:-1])  # Integer symbol
+            elif data.startswith("<STR:"):
+                return Str(data[5:-2])  # String symbol
             elif data.startswith("<NIL"):
                 return Tup()  # Tuple symbol
             elif data.startswith("<TRUE_VALUE:t"):
@@ -49,9 +49,9 @@ class CSEMachineFactory:
         lambda_expr.set_delta(self.get_delta(node.get_children()[1]))
         if node.get_children()[0].get_data() == ",":
             for identifier in node.get_children()[0].get_children():
-                lambda_expr.identifiers.append(Id(identifier.get_data()[12:-1]))
+                lambda_expr.identifiers.append(Id(identifier.get_data()[4:-1]))
         else:
-            lambda_expr.identifiers.append(Id(node.get_children()[0].get_data()[12:-1]))
+            lambda_expr.identifiers.append(Id(node.get_children()[0].get_data()[4:-1]))
         return lambda_expr
 
     def get_pre_order_traverse(self, node):

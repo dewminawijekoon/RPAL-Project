@@ -1,0 +1,6 @@
+let Greatest_of_three (X, Y, Z) =
+    X gr Y & X gr Z -> X
+    | Y gr Z -> Y
+    | Z
+in
+Print (Greatest_of_three (-2, 7, 0))

@@ -1,4 +1,4 @@
-from lexical_analyzer import tokenize
+from Lexer.lexical_analyzer import tokenize
 from parser import Parser
 
 # Test input with various language constructs

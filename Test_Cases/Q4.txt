@@ -1,0 +1,5 @@
+let rec Factorial N =
+    N eq 0 -> 1
+    | N * Factorial (N-1)
+in
+Print (Factorial 4)
