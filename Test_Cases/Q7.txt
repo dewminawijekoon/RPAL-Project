@@ -1,0 +1,5 @@
+let Is_Odd N =
+    (N / 2) * 2 eq N -> 'Even'
+    | 'Odd'
+in
+Print (Is_Odd (-8))
