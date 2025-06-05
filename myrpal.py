@@ -1,5 +1,5 @@
 import argparse
-from Parser.parser_old import Parser
+from Parser.parser_1 import Parser
 from Lexer.lexical_analyzer import tokenize
 from Standerizer.ast_factory import ASTFactory
 from CSEM.csemachine import CSEMachine
